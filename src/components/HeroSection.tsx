@@ -17,14 +17,6 @@ interface HeroSectionProps {
 export default function HeroSection({ translations }: HeroSectionProps) {
   const [hoveredBtn, setHoveredBtn] = useState(false);
 
-  // Simulación de mensajes de chat para el visual interactivo
-  const chatMessages = [
-    { role: 'user', text: '¿Estás sola esta noche?' },
-    { role: 'ai', text: 'Siempre para ti... ¿Qué historia crearemos juntos? 💕✨' },
-    { role: 'user', text: 'Una noche bajo las estrellas, solo tú y yo...' },
-    { role: 'ai', text: '*Me acerco más* Me gusta cómo piensas... Cuéntame más sobre lo que deseas. La luna está perfecta esta noche... 🌙' },
-  ];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
       {/* Animated background particles */}
@@ -56,27 +48,10 @@ export default function HeroSection({ translations }: HeroSectionProps) {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-violet/20 rounded-full blur-3xl animate-pulse" 
            style={{ animationDelay: '1s' }} />
 
-      {/* Floating 3D Girl - Hero Section (Solo izquierda) */}
-      <motion.div
-        className="hidden md:block absolute top-[10%] left-[2%] w-60 md:w-80 h-[350px] md:h-[450px] opacity-40 pointer-events-none z-0"
-        animate={{
-          y: [0, -20, 0],
-          rotate: [-2, 2, -2],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Image
-          src="/images/floating-3d/floating-1.png"
-          alt="Floating character"
-          fill
-          className="object-contain"
-        />
-      </motion.div>
-
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:pr-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,95 +154,52 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             </motion.div>
           </div>
 
-          {/* Right side - Interactive chat preview */}
+          {/* Right side - Large featured image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 1 }}
-            className="relative"
+            className="relative lg:h-[700px] h-[600px]"
           >
-            <div className="relative">
-              {/* Floating chat card */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Main featured image - 3D Girl */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative bg-gradient-to-br from-primary-darker to-primary-dark rounded-2xl 
-                         border border-neon-violet/30 shadow-2xl overflow-hidden backdrop-blur-sm"
+                animate={{ 
+                  y: [0, -20, 0],
+                  rotate: [0, 3, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative w-full h-full"
               >
-                {/* Chat header */}
-                <div className="bg-gradient-to-r from-neon-pink/20 to-neon-violet/20 px-6 py-4 
-                              border-b border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-neon-gradient flex items-center justify-center
-                                  shadow-lg shadow-neon-pink/50">
-                      <span className="text-white font-bold">S</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">Sakura • 19</h3>
-                      <p className="text-xs text-green-400 flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        Conectada • Esperándote
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Chat messages */}
-                <div className="p-6 space-y-4 max-h-96 overflow-y-auto">
-                  {chatMessages.map((msg, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1 + idx * 0.3 }}
-                      className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div
-                        className={`max-w-[80%] px-4 py-3 rounded-2xl ${
-                          msg.role === 'user'
-                            ? 'bg-neon-gradient text-white'
-                            : 'bg-white/5 text-gray-200 border border-white/10'
-                        }`}
-                      >
-                        <p className="text-sm leading-relaxed">{msg.text}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-
-                  {/* Typing indicator */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2.5 }}
-                    className="flex justify-start"
-                  >
-                    <div className="bg-white/5 border border-white/10 px-4 py-3 rounded-2xl">
-                      <div className="flex gap-1">
-                        <motion.div
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 0.6, repeat: Infinity }}
-                          className="w-2 h-2 rounded-full bg-neon-violet"
-                        />
-                        <motion.div
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                          className="w-2 h-2 rounded-full bg-neon-violet"
-                        />
-                        <motion.div
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-                          className="w-2 h-2 rounded-full bg-neon-violet"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Glow effect */}
-                <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink/30 rounded-full blur-3xl" />
+                <Image
+                  src="/images/floating-3d/floating-1.png"
+                  alt="Featured character"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </motion.div>
 
-              {/* Decorative elements */}
+              {/* Decorative floating elements */}
+              <motion.div
+                animate={{ 
+                  y: [0, -20, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-neon-pink/20 blur-xl"
+              />
+              
+              <motion.div
+                animate={{ 
+                  y: [0, 20, 0],
+                  rotate: [0, -5, 0]
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-neon-violet/20 blur-xl"
+              />
+
+              {/* Decorative border elements */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}

@@ -6,42 +6,6 @@ import Image from 'next/image';
 export default function FloatingCharacters() {
   return (
     <div className="fixed inset-0 pointer-events-none z-[5] overflow-hidden">
-      {/* Floating Girl 1 - Hero Section (Arriba izquierda) */}
-      <motion.div
-        className="absolute top-[5%] left-[1%] w-56 h-80 opacity-30"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -20, 0],
-          rotate: [-2, 2, -2],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Image
-          src="/images/floating-3d/floating-1.png"
-          alt="Floating character"
-          fill
-          className="object-contain"
-        />
-      </motion.div>
-
-      {/* Floating Girl 2 - Hero Section (Arriba derecha) */}
-      <motion.div
-        className="absolute top-[8%] right-[2%] w-64 h-88 opacity-35"
-        animate={{
-          x: [0, -35, 0],
-          y: [0, 25, 0],
-          rotate: [3, -3, 3],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      >
-        <Image
-          src="/images/floating-3d/floating-2.png"
-          alt="Floating character"
-          fill
-          className="object-contain"
-        />
-      </motion.div>
-
       {/* Floating Girl 3 - Character Carousel (Izquierda) */}
       <motion.div
         className="absolute top-[25%] left-[0%] w-52 h-72 opacity-25"

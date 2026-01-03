@@ -14,81 +14,49 @@ interface LiveSimulatorProps {
     result: string;
     continueStory: string;
     generateAnother: string;
+    uploadPhoto: string;
+    selectStyle: string;
   };
 }
 
 export default function LiveSimulator({ translations }: LiveSimulatorProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [generatedStory, setGeneratedStory] = useState('');
+  const [generatedResult, setGeneratedResult] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(false);
 
-  // Plantillas de historias más largas y variadas
-  const storyTemplates = [
-    {
-      intro: 'La noche cae sobre {1}. ',
-      body: 'Tus ojos se encuentran con los de ella bajo la tenue luz. Sus labios se curvan en una sonrisa mientras susurra: "He esperado este momento de {0}..." ',
-      conclusion: 'La tensión es palpable. Tu corazón late con fuerza mientras ella se acerca, sus dedos rozando tu mejilla. La historia apenas comienza... 🌙✨'
-    },
-    {
-      intro: 'El aroma de {2} llena el aire en {1}. ',
-      body: 'Ella te mira con ojos intensos, llenos de {0} y deseo contenido. "¿Sabes por qué te he traído aquí?", pregunta con voz seductora. ',
-      conclusion: 'El tiempo parece detenerse. Cada segundo a su lado intensifica la atracción magnética entre ustedes. ¿Qué sucederá después? 💕'
-    },
-    {
-      intro: 'En la intimidad de {1}, solo están ustedes dos. ',
-      body: 'Sus manos encuentran las tuyas. "Esta noche será especial", murmura con {0} en su voz. El ambiente de {2} los envuelve completamente. ',
-      conclusion: 'La química es innegable. Tus fantasías más profundas están a punto de hacerse realidad... 🔥'
-    },
-    {
-      intro: 'Bajo el cielo estrellado de {1}, la encuentras esperándote. ',
-      body: '"Sabía que vendrías", dice ella con {0} en su mirada. El {2} hace que todo sea perfecto. Se acerca más, eliminando cualquier distancia entre ustedes. ',
-      conclusion: 'Tu respiración se acelera. Este es el momento que ambos han estado esperando. La pasión apenas comienza a despertar... 💋'
-    },
-    {
-      intro: 'El escenario es {1}, perfecto para lo que está por venir. ',
-      body: 'Ella te guía con confianza, sus movimientos llenos de {0}. "Déjame mostrarte lo que he planeado", susurra al oído mientras {2} los rodea. ',
-      conclusion: 'Cada instante es más intenso que el anterior. La frontera entre fantasía y realidad se desvanece. Esto es solo el principio... 😈✨'
-    },
-    {
-      intro: 'Te encuentras en {1}, justo donde ella te pidió. ',
-      body: 'Sus ojos brillan con {0} mientras se quita lentamente... su chaqueta, revelando su outfit perfecto. "¿Te gusta lo que ves?", pregunta provocadora. El {2} añade magia al momento. ',
-      conclusion: 'Tu corazón late desenfrenadamente. Todo lo que has imaginado está aquí, real y tangible. ¿Estás listo para más? 🌸💕'
-    }
+  // Resultados de ejemplo para la demo
+  const resultExamples = [
+    "✨ Tu imagen ha sido transformada en un impresionante estilo anime con detalles sensuales y colores vibrantes. La expresión cautivadora y las proporciones realzadas crean una obra de arte única.",
+    "🎨 Creación completada: Una caricatura pin-up clásica con curvas elegantes y pose sugerente. El estilo retro combinado con un toque moderno hacen de esta pieza algo verdaderamente especial.",
+    "💫 Resultado: Una interpretación 3D hiperrealista con iluminación dramática. Los detalles sensuales han sido perfeccionados mientras se mantiene la esencia de la imagen original.",
+    "🌟 Arte generado: Una versión artística sensual con trazos suaves y atmósfera íntima. Los tonos cálidos y la composición crean una pieza visualmente cautivadora.",
+    "🔥 Transformación completa: Un estilo de fantasía épico con elementos místicos y una pose poderosa. La combinación de realismo y elementos fantásticos resulta en una imagen impactante."
   ];
 
   const handleTagClick = (tag: string) => {
     if (selectedTags.includes(tag)) {
       setSelectedTags(selectedTags.filter(t => t !== tag));
-    } else if (selectedTags.length < 3) {
+    } else if (selectedTags.length < 2) {
       setSelectedTags([...selectedTags, tag]);
     }
   };
 
-  const generateStory = () => {
-    if (selectedTags.length === 0) return;
+  const generateResult = () => {
+    if (!uploadedImage || selectedTags.length === 0) return;
     
     setIsGenerating(true);
-    setGeneratedStory('');
+    setGeneratedResult('');
 
     setTimeout(() => {
-      const template = storyTemplates[Math.floor(Math.random() * storyTemplates.length)];
+      const result = resultExamples[Math.floor(Math.random() * resultExamples.length)];
+      const styleInfo = selectedTags.length > 0 
+        ? `\n\n🎯 Estilos aplicados: ${selectedTags.join(' + ')}`
+        : '';
       
-      // Reemplazar placeholders con los tags seleccionados
-      let intro = template.intro;
-      let body = template.body;
-      let conclusion = template.conclusion;
-      
-      selectedTags.forEach((tag, index) => {
-        const placeholder = `{${index}}`;
-        intro = intro.replace(placeholder, tag.toLowerCase());
-        body = body.replace(new RegExp(placeholder.replace(/[{}]/g, '\\$&'), 'g'), tag.toLowerCase());
-        conclusion = conclusion.replace(placeholder, tag.toLowerCase());
-      });
-      
-      const fullStory = intro + body + conclusion;
-      setGeneratedStory(fullStory);
+      setGeneratedResult(result + styleInfo);
       setIsGenerating(false);
-    }, 2000); // 2 segundos para dar sensación de "procesamiento IA"
+    }, 2500);
   };
 
   return (
@@ -169,14 +137,47 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
             <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-neon-violet/20 rounded-full blur-3xl" />
 
             <div className="relative z-10">
-              {/* Tag selection */}
+              {/* Upload photo section */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <Wand2 className="w-5 h-5 text-neon-violet" />
+                  {translations.uploadPhoto}
+                </h3>
+                
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  onClick={() => setUploadedImage(true)}
+                  className={`relative border-2 border-dashed rounded-xl p-8 cursor-pointer transition-all duration-300
+                            ${uploadedImage 
+                              ? 'border-neon-pink bg-neon-pink/10' 
+                              : 'border-white/20 hover:border-neon-pink/50 bg-white/5'}`}
+                >
+                  {!uploadedImage ? (
+                    <div className="text-center">
+                      <Sparkles className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                      <p className="text-gray-300 font-medium mb-1">Haz clic para subir una foto</p>
+                      <p className="text-sm text-gray-500">JPG, PNG hasta 10MB</p>
+                    </div>
+                  ) : (
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-neon-gradient mx-auto mb-3 flex items-center justify-center">
+                        <Sparkles className="w-8 h-8 text-white" />
+                      </div>
+                      <p className="text-neon-pink font-semibold">✓ Foto cargada correctamente</p>
+                      <p className="text-sm text-gray-400 mt-1">Lista para transformar</p>
+                    </div>
+                  )}
+                </motion.div>
+              </div>
+
+              {/* Style selection */}
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-neon-pink" />
-                  Selecciona 3 elementos (máx.)
+                  {translations.selectStyle}
                 </h3>
                 
-                <div className="flex flex-wrap gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {translations.tags.map((tag, index) => {
                     const isSelected = selectedTags.includes(tag);
                     return (
@@ -185,10 +186,13 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleTagClick(tag)}
-                        className={`px-6 py-3 rounded-xl font-medium transition-all duration-300
+                        disabled={!uploadedImage}
+                        className={`px-4 py-3 rounded-xl font-medium transition-all duration-300
                                   ${isSelected 
                                     ? 'bg-neon-gradient text-white shadow-lg shadow-neon-pink/30' 
-                                    : 'bg-white/5 text-gray-300 border border-white/10 hover:border-neon-pink/50'}`}
+                                    : uploadedImage
+                                      ? 'bg-white/5 text-gray-300 border border-white/10 hover:border-neon-pink/50'
+                                      : 'bg-gray-800/50 text-gray-600 cursor-not-allowed'}`}
                       >
                         {tag}
                       </motion.button>
@@ -197,7 +201,7 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
                 </div>
               </div>
 
-              {/* Selected tags indicator */}
+              {/* Selected styles indicator */}
               <div className="mb-6 min-h-[40px]">
                 {selectedTags.length > 0 && (
                   <motion.div
@@ -205,11 +209,11 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex items-center gap-2 text-sm text-gray-400"
                   >
-                    <span>Seleccionados:</span>
+                    <span>Estilos seleccionados:</span>
                     <div className="flex gap-2">
                       {selectedTags.map((tag, index) => (
                         <span key={index} className="text-neon-pink font-medium">
-                          {tag}{index < selectedTags.length - 1 ? ',' : ''}
+                          {tag}{index < selectedTags.length - 1 ? ' + ' : ''}
                         </span>
                       ))}
                     </div>
@@ -221,11 +225,11 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={generateStory}
-                disabled={selectedTags.length === 0 || isGenerating}
+                onClick={generateResult}
+                disabled={!uploadedImage || selectedTags.length === 0 || isGenerating}
                 className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300
                           flex items-center justify-center gap-2
-                          ${selectedTags.length > 0 && !isGenerating
+                          ${uploadedImage && selectedTags.length > 0 && !isGenerating
                             ? 'bg-neon-gradient text-white shadow-lg shadow-neon-pink/30 hover:shadow-neon-pink/50' 
                             : 'bg-gray-800/50 text-gray-500 cursor-not-allowed'}`}
               >
@@ -249,7 +253,7 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
 
               {/* Generated result - Mejorado */}
               <AnimatePresence mode="wait">
-                {generatedStory && (
+                {generatedResult && (
                   <motion.div
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -274,7 +278,7 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
                             <span className="px-2 py-0.5 rounded-full bg-neon-pink/20 text-xs">IA Generado</span>
                           </p>
                           <p className="text-white text-base leading-relaxed mb-4">
-                            {generatedStory}
+                            {generatedResult}
                           </p>
                           
                           {/* Botones de acción */}
@@ -290,7 +294,7 @@ export default function LiveSimulator({ translations }: LiveSimulatorProps) {
                             <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              onClick={generateStory}
+                              onClick={generateResult}
                               className="px-6 py-2 rounded-lg bg-white/10 border border-white/20 text-white font-medium text-sm
                                        hover:bg-white/20 transition-all"
                             >

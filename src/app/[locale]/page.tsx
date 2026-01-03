@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import AgeVerificationModal from '@/components/AgeVerificationModal';
 import HeroSection from '@/components/HeroSection';
-import CharacterCarousel from '@/components/CharacterCarousel';
 import ImmersiveShowcase from '@/components/ImmersiveShowcase';
 import FeaturesSection from '@/components/FeaturesSection';
 import LiveSimulator from '@/components/LiveSimulator';
@@ -47,15 +46,6 @@ export default function Home() {
         }}
       />
 
-      {/* Character Carousel */}
-      <CharacterCarousel 
-        translations={{
-          title: t('characters.title'),
-          types: t.raw('characters.types'),
-          subtitle: t('characterCarousel.subtitle'),
-        }}
-      />
-
       {/* Immersive Showcase - Scroll Experience */}
       <ImmersiveShowcase locale={locale} />
 
@@ -80,6 +70,8 @@ export default function Home() {
           result: t('simulator.result'),
           continueStory: t('simulator.continueStory'),
           generateAnother: t('simulator.generateAnother'),
+          uploadPhoto: t('simulator.uploadPhoto'),
+          selectStyle: t('simulator.selectStyle'),
         }}
       />
 

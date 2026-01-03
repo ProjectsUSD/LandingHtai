@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "Your Fantasies, Your Script, Your Reality",
-    "subtitle": "Create hentai stories and videos with your dream waifus. Uncensored generative AI that turns every desire into visual reality.",
+    "title": "Your Fantasies, Your Creation, Your Reality",
+    "subtitle": "Transform photos into personalized erotic art with AI. Generate unique content that turns any image into your perfect visual fantasy.",
     "cta": "Create My Fantasy Free",
     "ctaSecondary": "View Spicy Demo 🔥"
   },
@@ -78,13 +78,15 @@
     "types": ["Tsundere", "Dominant", "Shy", "Mysterious", "Adventurous", "Intellectual", "Rebel", "Elegant"]
   },
   "simulator": {
-    "title": "Try the Generator",
-    "subtitle": "Select tags and watch the AI create your story",
-    "tags": ["Romance", "Fantasy", "School", "Action", "Mystery", "Sci-Fi", "Supernatural", "Slice of Life"],
-    "generate": "Generate Story",
-    "result": "Your story: ",
-    "continueStory": "Continue Story 🔥",
-    "generateAnother": "Generate Another ✨"
+    "title": "Erotic Art Generator",
+    "subtitle": "Upload a photo and select the style to create your personalized artwork",
+    "tags": ["Anime", "Realistic", "Cartoon", "Pin-Up", "3D", "Artistic", "Sensual", "Fantasy"],
+    "generate": "Generate My Art 🔥",
+    "result": "Your creation: ",
+    "continueStory": "Enhance Result 🔥",
+    "generateAnother": "Generate Another Style ✨",
+    "uploadPhoto": "Upload Photo",
+    "selectStyle": "Select a style (max. 2)"
   },
   "showcase": {
     "scrollHint": "Scroll to explore",

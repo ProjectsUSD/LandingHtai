@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "Tus Fantasías, Tu Guion, Tu Realidad",
-    "subtitle": "Crea historias y videos hentai con las waifus de tus sueños. IA generativa sin censura que convierte cada deseo en realidad visual.",
+    "title": "Tus Fantasías, Tu Creación, Tu Realidad",
+    "subtitle": "Transforma fotos en arte erótico personalizado con IA. Genera contenido único que convierte cualquier imagen en tu fantasía visual perfecta.",
     "cta": "Crear Mi Fantasía Gratis",
     "ctaSecondary": "Ver Demo Picante 🔥"
   },
@@ -78,13 +78,15 @@
     "types": ["Tsundere 💕", "Dominante 🔥", "Tímida 😳", "Misteriosa 🌙", "Aventurera ⚡", "Intelectual 📚", "Rebelde 😈", "Elegante 👑"]
   },
   "simulator": {
-    "title": "Prueba el Generador Ahora",
-    "subtitle": "Selecciona elementos y observa cómo la IA crea tu fantasía perfecta",
-    "tags": ["Romance", "Fantasía", "Escuela", "Playa", "Noche", "Onsen", "Dormitorio", "Sobrenatural"],
-    "generate": "Generar Mi Escena 🔥",
-    "result": "Tu escena perfecta: ",
-    "continueStory": "Continuar Historia 🔥",
-    "generateAnother": "Generar Otra ✨"
+    "title": "Generador de Arte Erótico",
+    "subtitle": "Sube una foto y selecciona el estilo para crear tu caricatura personalizada",
+    "tags": ["Anime", "Realista", "Cartoon", "Pin-Up", "3D", "Artístico", "Sensual", "Fantasía"],
+    "generate": "Generar Mi Arte 🔥",
+    "result": "Tu creación: ",
+    "continueStory": "Mejorar Resultado 🔥",
+    "generateAnother": "Generar Otro Estilo ✨",
+    "uploadPhoto": "Subir Foto",
+    "selectStyle": "Selecciona un estilo (máx. 2)"
   },
   "showcase": {
     "scrollHint": "Scroll para explorar",
