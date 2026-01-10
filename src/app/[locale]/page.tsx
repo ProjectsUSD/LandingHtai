@@ -2,9 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
-import AgeVerificationModal from '@/components/AgeVerificationModal';
 import HeroSection from '@/components/HeroSection';
-import ImmersiveShowcase from '@/components/ImmersiveShowcase';
 import FeaturesSection from '@/components/FeaturesSection';
 import LiveSimulator from '@/components/LiveSimulator';
 import PricingSection from '@/components/PricingSection';
@@ -27,17 +25,6 @@ export default function Home() {
       
       {/* Floating Characters */}
       <FloatingCharacters />
-      
-      {/* Modal de verificación de edad */}
-      <AgeVerificationModal 
-        translations={{
-          title: t('ageVerification.title'),
-          message: t('ageVerification.message'),
-          confirm: t('ageVerification.confirm'),
-          decline: t('ageVerification.decline'),
-          disclaimer: t('ageVerification.disclaimer'),
-        }}
-      />
 
       {/* Hero Section */}
       <HeroSection 
@@ -54,18 +41,16 @@ export default function Home() {
         translations={{
           title: t('simulator.title'),
           subtitle: t('simulator.subtitle'),
-          tags: t.raw('simulator.tags'),
+          placeholder: t('simulator.placeholder'),
           generate: t('simulator.generate'),
           result: t('simulator.result'),
           continueStory: t('simulator.continueStory'),
           generateAnother: t('simulator.generateAnother'),
-          uploadPhoto: t('simulator.uploadPhoto'),
-          selectStyle: t('simulator.selectStyle'),
+          inputLabel: t('simulator.inputLabel'),
+          generating: t('simulator.generating'),
+          chatMode: t('simulator.chatMode'),
         }}
       />
-
-      {/* Immersive Showcase - Scroll Experience */}
-      <ImmersiveShowcase locale={locale} />
 
       {/* Features Section */}
       <FeaturesSection 

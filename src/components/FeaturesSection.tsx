@@ -27,9 +27,22 @@ export default function FeaturesSection({ translations }: FeaturesSectionProps) 
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-pink/10 rounded-full blur-3xl" />
 
       {/* Floating 3D Girls - Features Section */}
-      {/* Floating character 3 removed to avoid duplicate */}
-
-      {/* Floating character 4 removed to avoid duplicate */}
+      {/* Center - floating-8 (Arquera medieval) */}
+      <motion.div
+        className="absolute top-[50%] right-[5%] w-40 sm:w-52 md:w-80 h-52 sm:h-64 md:h-[420px] opacity-75 pointer-events-none z-10"
+        animate={{
+          y: [0, -20, 0],
+          rotate: [-2, 1, -2],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <Image
+          src="/images/floating-3d/floating-8.png"
+          alt="Floating character"
+          fill
+          className="object-contain"
+        />
+      </motion.div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}

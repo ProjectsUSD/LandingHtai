@@ -154,7 +154,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             </motion.div>
           </div>
 
-          {/* Right side - Large featured image */}
+          {/* Right side - Decorative elements only */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -162,60 +162,6 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             className="relative h-[400px] md:h-[500px] lg:h-[700px]"
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              {/* Floating 3D characters - Main composition */}
-              
-              {/* Main center image - floating-1 */}
-              <motion.div
-                animate={{ 
-                  y: [0, -20, 0],
-                  rotate: [0, 2, 0]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute right-[10%] top-[20%] w-48 sm:w-64 md:w-96 h-64 sm:h-80 md:h-[500px] z-20 opacity-90"
-              >
-                <Image
-                  src="/images/floating-3d/floating-1.png"
-                  alt="Main character"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </motion.div>
-
-              {/* Background left - floating-9 */}
-              <motion.div
-                animate={{ 
-                  y: [0, -15, 0],
-                  rotate: [0, -3, 0]
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-                className="absolute right-[50%] top-[15%] w-48 sm:w-64 md:w-96 h-64 sm:h-80 md:h-[500px] z-15 opacity-80"
-              >
-                <Image
-                  src="/images/floating-3d/floating-9.png"
-                  alt="Floating character"
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-
-              {/* Background right - floating-15 */}
-              <motion.div
-                animate={{ 
-                  y: [0, -18, 0],
-                  rotate: [0, 4, 0]
-                }}
-                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-                className="absolute right-[-32%] top-[6%] w-64 sm:w-80 md:w-[550px] h-80 sm:h-[420px] md:h-[700px] z-15 opacity-85"
-              >
-                <Image
-                  src="/images/floating-3d/floating-15.png"
-                  alt="Floating character"
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-
               {/* Decorative floating elements */}
               <motion.div
                 animate={{ 

@@ -1,38 +1,38 @@
 {
   "hero": {
-    "title": "Tus Fantasías, Tu Creación, Tu Realidad",
-    "subtitle": "Transforma fotos en arte erótico personalizado con IA. Genera contenido único que convierte cualquier imagen en tu fantasía visual perfecta.",
-    "cta": "Crear Mi Fantasía Gratis",
-    "ctaSecondary": "Ver Demo Picante 🔥"
+    "title": "Tus Historias, Tu Imaginación, Tu Realidad",
+    "subtitle": "Crea historias visuales interactivas con IA. Escribe lo que imaginas y observa cómo cobra vida con imágenes generadas automáticamente.",
+    "cta": "Crear Mi Historia Gratis",
+    "ctaSecondary": "Ver Historias Creadas ✨"
   },
   "ageVerification": {
     "title": "Verificación de Edad",
-    "message": "Este sitio contiene contenido destinado exclusivamente para adultos. Debes ser mayor de 18 años para continuar.",
+    "message": "Este sitio contiene contenido creativo generado por IA. Algunos usuarios crean historias para audiencias adultas. Debes ser mayor de 18 años para continuar.",
     "confirm": "Soy mayor de 18 años",
     "decline": "Salir",
     "disclaimer": "Al continuar, confirmas que eres mayor de edad en tu jurisdicción."
   },
   "features": {
-    "title": "Crea Arte Personalizado con IA Avanzada",
-    "subtitle": "Diseñado para creadores que buscan transformar cualquier imagen en arte único",
+    "title": "Crea Historias Visuales con IA Avanzada",
+    "subtitle": "Diseñado para creadores que buscan dar vida a sus ideas con imágenes y narrativa",
     "cta": "Comenzar Ahora",
-    "ctaQuestion": "¿Listo para crear tu obra maestra?",
+    "ctaQuestion": "¿Listo para crear tu primera historia?",
     "items": [
       {
-        "title": "Múltiples Estilos Artísticos",
-        "description": "Elige entre anime, realista, cartoon, pin-up, 3D y más. Cada estilo profesionalmente optimizado para resultados increíbles."
+        "title": "Generación Conversacional de Historias",
+        "description": "Escribe tu historia como si hablaras con un asistente. La IA genera automáticamente imágenes coherentes para cada escena que describes."
       },
       {
-        "title": "Personalización Total",
-        "description": "Transforma fotos de amigos, famosos, actores o personajes ficticios. Libertad creativa sin límites para cualquier proyecto."
+        "title": "Creación de Imágenes Sin Límites",
+        "description": "Genera cualquier imagen que imagines sin restricciones. Libertad creativa total para dar vida a tus personajes y escenarios. Ideal para contenido creativo de todo tipo."
       },
       {
         "title": "Privacidad Garantizada",
-        "description": "Tus creaciones son privadas. Encriptación de extremo a extremo y eliminación automática opcional. Tu contenido, solo tuyo."
+        "description": "Tus creaciones son privadas. Encriptación de extremo a extremo y control total sobre tu contenido. Solo tú decides qué compartir."
       },
       {
-        "title": "Resultados en Segundos",
-        "description": "IA de última generación procesa tus imágenes en tiempo récord. Calidad profesional sin esperas largas."
+        "title": "Galería de Historias Inspiradoras",
+        "description": "Explora historias creadas por otros usuarios. Inspírate en narrativas únicas y descubre nuevas formas de contar historias visuales."
       },
       {
         "title": "Programa de Referidos - Gana Invitando Amigos",
@@ -50,9 +50,9 @@
       "currency": "€",
       "period": "/mes",
       "features": [
-        "50 mensajes al mes",
-        "Acceso a personajes básicos",
-        "5 generaciones de imágenes/mes",
+        "50 generaciones de imágenes/mes",
+        "Historias básicas con texto e imágenes",
+        "5 escenas por historia",
         "Historias guardadas ilimitadas",
         "Soporte por email"
       ],
@@ -65,13 +65,13 @@
       "period": "/mes",
       "popular": "Más Popular",
       "features": [
-        "Mensajes ilimitados",
-        "Todos los personajes desbloqueados",
         "Generación ilimitada de imágenes",
-        "Generación de videos hentai (hasta 30s)",
+        "Historias ilimitadas con escenas completas",
+        "Libertad creativa total en tus historias",
+        "Exportación de historias en formato PDF/eBook",
         "Memoria extendida (contexto 32K)",
         "Soporte prioritario 24/7",
-        "Nuevos personajes cada semana",
+        "Acceso anticipado a nuevas funciones",
         "Exportación en HD sin marca de agua"
       ],
       "cta": "Desbloquear Premium"
@@ -82,15 +82,16 @@
     "types": ["Tsundere 💕", "Dominante 🔥", "Tímida 😳", "Misteriosa 🌙", "Aventurera ⚡", "Intelectual 📚", "Rebelde 😈", "Elegante 👑"]
   },
   "simulator": {
-    "title": "Generador de Arte Erótico",
-    "subtitle": "Sube una foto y selecciona el estilo para crear tu caricatura personalizada",
-    "tags": ["Anime", "Realista", "Cartoon", "Pin-Up", "3D", "Artístico", "Sensual", "Fantasía"],
-    "generate": "Generar Mi Arte 🔥",
+    "title": "Generador de Historias Interactivas",
+    "subtitle": "Escribe tu historia y observa cómo la IA genera imágenes automáticamente",
+    "placeholder": "Escribe tu historia aquí... Ejemplo: 'Un caballero valiente se encuentra con un dragón en las montañas nevadas'",
+    "generate": "Generar Imagen ✨",
     "result": "Tu creación: ",
-    "continueStory": "Mejorar Resultado 🔥",
-    "generateAnother": "Generar Otro Estilo ✨",
-    "uploadPhoto": "Subir Foto",
-    "selectStyle": "Selecciona un estilo (máx. 2)"
+    "continueStory": "Continuar Historia 📖",
+    "generateAnother": "Nueva Historia ✨",
+    "inputLabel": "Describe tu escena",
+    "generating": "Generando imagen...",
+    "chatMode": "Modo Conversacional"
   },
   "showcase": {
     "title": "Ejemplos de Creaciones",

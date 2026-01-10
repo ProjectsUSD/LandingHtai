@@ -41,9 +41,9 @@ export default function PricingSection({ translations }: PricingSectionProps) {
       {/* Floating 3D Girls removed - starting from scratch */}
 
       {/* Floating 3D characters - Pricing Section */}
-      {/* Top left - floating-11 */}
+      {/* Top left - floating-6 (Músico rockero) */}
       <motion.div
-        className="absolute top-[-2%] left-[-3%] w-44 sm:w-56 md:w-80 h-56 sm:h-72 md:h-[420px] opacity-80 pointer-events-none z-10"
+        className="absolute top-[-2%] left-[-3%] w-48 sm:w-60 md:w-84 h-60 sm:h-72 md:h-[440px] opacity-80 pointer-events-none z-10"
         animate={{
           y: [0, -15, 0],
           rotate: [-1, 2, -1],
@@ -51,16 +51,16 @@ export default function PricingSection({ translations }: PricingSectionProps) {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src="/images/floating-3d/floating-11.png"
+          src="/images/floating-3d/floating-6.png"
           alt="Floating character"
           fill
           className="object-contain"
         />
       </motion.div>
 
-      {/* Top right - floating-16 */}
+      {/* Top right - floating-7 (Científica) */}
       <motion.div
-        className="absolute top-[-2%] right-[-3%] w-44 sm:w-56 md:w-80 h-56 sm:h-72 md:h-[420px] opacity-80 pointer-events-none z-10"
+        className="absolute top-[-2%] right-[-3%] w-48 sm:w-60 md:w-84 h-60 sm:h-72 md:h-[440px] opacity-80 pointer-events-none z-10"
         animate={{
           y: [0, -18, 0],
           rotate: [2, -1, 2],
@@ -68,7 +68,7 @@ export default function PricingSection({ translations }: PricingSectionProps) {
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src="/images/floating-3d/floating-16.png"
+          src="/images/floating-3d/floating-7.png"
           alt="Floating character"
           fill
           className="object-contain"
